@@ -12,16 +12,22 @@
 		pointsYes += 1;
 	}
 	function decreaseNo() {
-		pointsNo -= 1;
+		if (pointsNo > 0) {
+			pointsNo -= 1;
+		}
 	}
 	function decreaseYes() {
-		pointsYes -= 1;
+		if (pointsYes > 0) {
+			pointsYes -= 1;
+		}
 	}
 	function reset() {
 		console.log('rest');
 		pointsYes = 0;
-		pointsNo = 42;
+		pointsNo = 0;
 	}
+
+	$: diff = Math.max(pointsYes, pointsNo) - Math.min(pointsYes, pointsNo);
 </script>
 
 <h1 class="mb-4 text-3xl">Welcome to Kingsdilemma!</h1>
@@ -44,5 +50,12 @@
 		</div>
 	</div>
 
+	<div
+		class="rounded-xl p-1"
+		class:bg-blue-500={pointsYes > pointsNo}
+		class:bg-red-200={pointsYes < pointsNo}
+	>
+		Diff: {diff}
+	</div>
 	<Button class="w-fit bg-orange-300" text="Zurücksetzen" on:click={reset} />
 </div>
