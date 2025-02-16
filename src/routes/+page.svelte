@@ -30,23 +30,24 @@
 	$: diff = Math.max(pointsYes, pointsNo) - Math.min(pointsYes, pointsNo);
 </script>
 
-<h1 class="mb-4 text-3xl">Welcome to Kingsdilemma!</h1>
-
+<div class="mt-4 flex flex-row items-center justify-center">
+	<h1 class="mb-4 text-4xl">Welcome to Kingsdilemma!</h1>
+</div>
 <div class=" flex flex-col items-center justify-center space-y-2">
 	<div class="flex flex-row space-x-2">
 		<div class="flex flex-col space-y-2">
-			<Button class="bg-blue-300" text="+1" on:click={increaseYes} />
-			<Button class="bg-blue-300" text="-1" on:click={decreaseYes} />
+			<Button variant="blue" text="+1" on:click={increaseYes} />
+			<Button variant="blue" text="-1" on:click={decreaseYes} />
 		</div>
 
 		<div class="flex flex-row items-end space-x-1">
-			<Chart class="bg-blue-500" points={pointsYes} text="JA!" />
-			<Chart class="bg-red-500" points={pointsNo} text="Nein!" />
+			<Chart variant="blue" points={pointsYes} text="JA!" />
+			<Chart variant="red" points={pointsNo} text="Nein!" />
 		</div>
 
 		<div class="flex flex-col space-y-2">
-			<Button class="bg-red-300" text="+1" on:click={increaseNo} />
-			<Button class="bg-red-300" text="-1" on:click={decreaseNo} />
+			<Button variant="red" text="+1" on:click={increaseNo} />
+			<Button variant="red" text="-1" on:click={decreaseNo} />
 		</div>
 	</div>
 
@@ -57,5 +58,5 @@
 	>
 		Diff: {diff}
 	</div>
-	<Button class="w-fit bg-orange-300" text="Zurücksetzen" on:click={reset} />
+	<Button variant="gold" text="Zurücksetzen" on:click={reset} />
 </div>

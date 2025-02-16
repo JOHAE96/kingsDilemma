@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+@layer utilities {
+	.font-medieval {
+		font-family: 'Cinzel', serif;
+	}
+}
