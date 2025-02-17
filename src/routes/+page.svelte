@@ -5,11 +5,11 @@
 	let pointsYes = 0;
 	let pointsNo = 0;
 
-	function increaseNo() {
-		pointsNo += 1;
+	function increaseNo(num: number) {
+		pointsNo += num;
 	}
-	function increaseYes() {
-		pointsYes += 1;
+	function increaseYes(num: number) {
+		pointsYes += num;
 	}
 	function decreaseNo() {
 		if (pointsNo > 0) {
@@ -35,7 +35,7 @@
 <div class=" flex flex-col items-center justify-center space-y-2">
 	<div class="flex flex-row space-x-2">
 		<div class="flex flex-col space-y-2">
-			<Button class="bg-blue-300" text="+1" on:click={increaseYes} />
+			<Button class="bg-blue-300" text="+1" on:click={increaseYes(1)} />
 			<Button class="bg-blue-300" text="-1" on:click={decreaseYes} />
 		</div>
 
@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="flex flex-col space-y-2">
-			<Button class="bg-red-300" text="+1" on:click={increaseNo} />
+			<Button class="bg-red-300" text="+1" on:click={increaseNo(1)} />
 			<Button class="bg-red-300" text="-1" on:click={decreaseNo} />
 		</div>
 	</div>
