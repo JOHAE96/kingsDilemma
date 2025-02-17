@@ -1,21 +1,6 @@
 <script lang="ts">
 	let { variant = 'blue', text = 'Punkte', points = 0 } = $props();
-	const variants = {
-		blue: {
-			border: 'border-blue-600',
-			from: 'from-blue-800',
-			to: 'to-blue-900',
-			textColor: 'text-blue-200',
-			shadow: 'shadow-[0px_4px_0px_rgba(37,99,235,0.8)]'
-		},
-		red: {
-			border: 'border-red-600',
-			from: 'from-red-800',
-			to: 'to-red-900',
-			textColor: 'text-red-200',
-			shadow: 'shadow-[0px_4px_0px_rgba(220,38,38,0.8)]'
-		}
-	};
+	import { variants } from './variants';
 </script>
 
 <div
