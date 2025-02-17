@@ -36,9 +36,9 @@
 <div class=" flex flex-col items-center justify-center space-y-2">
 	<div class="flex flex-row space-x-2">
 		<div class="flex flex-col space-y-2">
-			<Button variant="blue" text="+1" on:click={increaseYes(1)} />
-			<Button variant="blue" text="+5" on:click={increaseYes(5)} />
-			<Button variant="blue" text="+10" on:click={increaseYes(10)} />
+			<Button variant="blue" text="+1" on:click={() => increaseYes(1)} />
+			<Button variant="blue" text="+5" on:click={() => increaseYes(5)} />
+			<Button variant="blue" text="+10" on:click={() => increaseYes(10)} />
 			<Button variant="blue" text="-1" on:click={decreaseYes} />
 		</div>
 
@@ -48,9 +48,9 @@
 		</div>
 
 		<div class="flex flex-col space-y-2">
-			<Button variant="red" text="+1" on:click={increaseNo(1)} />
-			<Button variant="red" text="+5" on:click={increaseNo(5)} />
-			<Button variant="red" text="+10" on:click={increaseNo(10)} />
+			<Button variant="red" text="+1" on:click={() => increaseNo(1)} />
+			<Button variant="red" text="+5" on:click={() => increaseNo(5)} />
+			<Button variant="red" text="+10" on:click={() => increaseNo(10)} />
 			<Button variant="red" text="-1" on:click={decreaseNo} />
 		</div>
 	</div>
