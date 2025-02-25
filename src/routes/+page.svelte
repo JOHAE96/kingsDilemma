@@ -75,7 +75,7 @@
 		>
 			<p class="text-center text-xl">{pointsYes > pointsNo ? 'Ja!' : 'Nein!'}</p>
 
-			<p>mit: {diff} Punkten in Führung</p>
+			<p>mit: <span class="font-bold"> {diff}</span> Punkten in Führung</p>
 		</div>
 	{/if}
 
