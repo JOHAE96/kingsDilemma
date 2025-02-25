@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { variant = 'blue', text = 'Punkte', points = 0 } = $props();
+	let { variant = 'blue', text = 'Punkte', points = 0, total = 0 } = $props();
 	import { variants } from './variants';
 </script>
 
@@ -11,7 +11,7 @@
 		variants[variant].textColor,
 		variants[variant].shadow
 	]}
-	style="height: {points * 30}px; transition: height 0.3s;"
+	style="height: {(points / total) * 80}vh; transition: height 0.3s;"
 >
 	{text}: {points}
 </div>
