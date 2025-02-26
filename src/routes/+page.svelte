@@ -66,7 +66,11 @@
 	</div>
 
 	{#if diff === 0}
-		<img src="/judge-hammer.png" alt="Hand" class="h-20" />
+		<img
+			src="https://clipart-library.com/images_k/gavel-transparent-background/gavel-transparent-background-4.png"
+			alt="Hammer"
+			class="h-20"
+		/>
 	{:else}
 		<div
 			class="rounded-xl p-1"
