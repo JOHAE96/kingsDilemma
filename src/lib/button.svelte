@@ -3,7 +3,7 @@
 	import { variants } from './variants';
 
 	const dispatch = createEventDispatcher();
-	let { variant = 'gold', text = 'click me', classes = '' } = $props();
+	let { variant = 'gold', text = 'click me', classes = '', disabled = false } = $props();
 	function clickhandler() {
 		console.log('click');
 		dispatch('click');
@@ -13,11 +13,16 @@
 <button
 	class={[
 		classes,
-		'font-medieval relative cursor-pointer overflow-hidden rounded-xl px-6 py-3 text-xl shadow-2xl transition-all hover:scale-105 active:scale-95',
+		'font-medieval relative  overflow-hidden rounded-xl px-6 py-3 text-xl shadow-2xl transition-all ',
 		variants[variant].border,
 		`bg-gradient-to-b ${variants[variant].from} ${variants[variant].to}`,
 		variants[variant].textColor,
-		variants[variant].shadow
+		variants[variant].shadow,
+		{
+			'cursor-not-allowed': disabled,
+			'cursor-pointer hover:scale-105 active:scale-95': !disabled,
+			'opacity-50': disabled
+		}
 	]}
 	onclick={clickhandler}
 >

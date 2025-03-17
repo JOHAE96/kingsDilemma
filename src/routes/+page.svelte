@@ -30,58 +30,59 @@
 	$: diff = Math.max(pointsYes, pointsNo) - Math.min(pointsYes, pointsNo);
 </script>
 
-<div class="mt-4 flex flex-row items-center justify-center">
-	<h1 class="mb-4 text-4xl">Welcome to Kingsdilemma!</h1>
-</div>
-<div class=" flex flex-col items-center justify-center space-y-2">
-	<div class="flex flex-row space-x-2">
-		<div class="grid h-64 grid-cols-2 gap-2">
-			<Button
-				classes="col-span-2 row-span-2"
-				variant="blue"
-				text="+10"
-				on:click={() => increaseYes(10)}
+<div class="relative h-screen">
+	<h1 class="p-4 text-center text-4xl">Welcome to Kingsdilemma!</h1>
+	<div class="flex justify-center">
+		{#if diff === 0}
+			<img
+				src="https://clipart-library.com/images_k/gavel-transparent-background/gavel-transparent-background-4.png"
+				alt="Hammer"
+				class="h-20"
 			/>
-			<Button classes="col-span-2" variant="blue" text="+5" on:click={() => increaseYes(5)} />
-			<Button variant="blue" text="+1" on:click={() => increaseYes(1)} />
-			<Button variant="blue" text="-1" on:click={decreaseYes} />
-		</div>
+		{:else}
+			<div
+				class="rounded-xl p-1 text-center"
+				class:bg-blue-500={pointsYes > pointsNo}
+				class:bg-red-200={pointsYes < pointsNo}
+			>
+				<p class="text-center text-xl">{pointsYes > pointsNo ? 'Ja!' : 'Nein!'}</p>
 
-		<div class="mx-5 flex flex-row items-end space-x-1">
-			<Chart variant="blue" points={pointsYes} total={pointsYes + pointsNo} text="JA!" />
-			<Chart variant="red" points={pointsNo} total={pointsYes + pointsNo} text="Nein!" />
-		</div>
-
-		<div class="grid h-64 grid-cols-2 gap-2">
-			<Button
-				classes="col-span-2 row-span-2"
-				variant="red"
-				text="+10"
-				on:click={() => increaseNo(10)}
-			/>
-			<Button classes="col-span-2" variant="red" text="+5" on:click={() => increaseNo(5)} />
-			<Button variant="red" text="+1" on:click={() => increaseNo(1)} />
-			<Button variant="red" text="-1" on:click={decreaseNo} />
-		</div>
+				<p>mit: <span class="font-bold"> {diff}</span> Punkten in Führung</p>
+			</div>
+		{/if}
 	</div>
 
-	{#if diff === 0}
-		<img
-			src="https://clipart-library.com/images_k/gavel-transparent-background/gavel-transparent-background-4.png"
-			alt="Hammer"
-			class="h-20"
-		/>
-	{:else}
-		<div
-			class="rounded-xl p-1"
-			class:bg-blue-500={pointsYes > pointsNo}
-			class:bg-red-200={pointsYes < pointsNo}
-		>
-			<p class="text-center text-xl">{pointsYes > pointsNo ? 'Ja!' : 'Nein!'}</p>
+	<div class="absolute bottom-0 mb-4 flex h-full w-full flex-col items-center space-y-2">
+		<div class="flex h-full flex-row items-end space-x-2">
+			<div class="grid h-64 grid-cols-2 gap-2">
+				<Button
+					classes="col-span-2 row-span-2"
+					variant="blue"
+					text="+10"
+					on:click={() => increaseYes(10)}
+				/>
+				<Button classes="col-span-2" variant="blue" text="+5" on:click={() => increaseYes(5)} />
+				<Button variant="blue" text="+1" on:click={() => increaseYes(1)} />
+				<Button variant="blue" disabled={pointsYes === 0} text="-1" on:click={decreaseYes} />
+			</div>
+			<div class="mx-5 flex h-[60vh] flex-row items-end space-x-1">
+				<Chart variant="blue" points={pointsYes} total={pointsYes + pointsNo} text="JA!" />
+				<Chart variant="red" points={pointsNo} total={pointsYes + pointsNo} text="Nein!" />
+			</div>
 
-			<p>mit: <span class="font-bold"> {diff}</span> Punkten in Führung</p>
+			<div class="grid h-64 grid-cols-2 gap-2">
+				<Button
+					classes="col-span-2 row-span-2"
+					variant="red"
+					text="+10"
+					on:click={() => increaseNo(10)}
+				/>
+				<Button classes="col-span-2" variant="red" text="+5" on:click={() => increaseNo(5)} />
+				<Button variant="red" text="+1" on:click={() => increaseNo(1)} />
+				<Button variant="red" disabled={pointsNo === 0} text="-1" on:click={decreaseNo} />
+			</div>
 		</div>
-	{/if}
 
-	<Button variant="gold" text="Zurücksetzen" on:click={reset} />
+		<Button variant="gold" text="Zurücksetzen" on:click={reset} />
+	</div>
 </div>

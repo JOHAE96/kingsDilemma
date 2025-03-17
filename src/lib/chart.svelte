@@ -11,7 +11,7 @@
 		variants[variant].textColor,
 		variants[variant].shadow
 	]}
-	style="height: {(points / total) * 80}vh; transition: height 0.3s;"
+	style="height: {(points / total) * 100}%; transition: height 0.3s;"
 >
 	{text}: {points}
 </div>
